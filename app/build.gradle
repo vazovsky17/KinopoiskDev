@@ -1,0 +1,78 @@
+plugins {
+    alias(libs.plugins.android.app)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safeargs)
+}
+
+android {
+    namespace 'app.vazovsky.kinopoiskdev'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "app.vazovsky.kinopoiskdev"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+    implementation(libs.material)
+    implementation(libs.core)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+
+    implementation(libs.kotlin)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.kotlin.datetime)
+    coreLibraryDesugaring(libs.desugaring)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+
+    implementation(libs.view.binding)
+    implementation(libs.timber)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    implementation(libs.lottie)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+}

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
     <style name="Theme.KinopoiskDev" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -6,8 +6,13 @@
         <item name="android:navigationBarColor">@color/white</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
         <item name="appBarLayoutStyle">@style/AppBarStyle</item>
         <item name="toolbarStyle">@style/ToolbarStyle</item>
+
+        <item name="android:colorBackground">@color/majorelle_blue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorSearchView">@color/french_sky_blue</item>
     </style>
 
 </resources>

@@ -1,13 +1,24 @@
 package app.vazovsky.kinopoiskdev.data.remote
 
+import app.vazovsky.kinopoiskdev.data.remote.model.ApiGenre
+import app.vazovsky.kinopoiskdev.data.remote.response.ApiMoviesData
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface KinopoiskApiService {
 
+    @GET("v1/movie/possible-values-by-field")
+    suspend fun getPossibleValuesByField(
+        @Query("field") field: String,
+    ): List<ApiGenre>
+
     @GET("v1/movie")
-    suspend fun getMovies()
+    suspend fun getMovies() : ApiMoviesData
 
     @GET("v1/movie/{id}")
-    suspend fun getMovieById()
+    suspend fun getMovieById(
+        @Path("id") id: String,
+    )
 
 }

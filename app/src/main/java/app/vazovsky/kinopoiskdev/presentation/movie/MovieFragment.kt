@@ -1,19 +1,19 @@
-package app.vazovsky.kinopoiskdev.presentation.film
+package app.vazovsky.kinopoiskdev.presentation.movie
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import app.vazovsky.kinopoiskdev.R
-import app.vazovsky.kinopoiskdev.databinding.FragmentFilmBinding
+import app.vazovsky.kinopoiskdev.databinding.FragmentMovieBinding
 import app.vazovsky.kinopoiskdev.extensions.fitTopInsetsWithPadding
 import app.vazovsky.kinopoiskdev.presentation.base.BaseFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FilmFragment : BaseFragment(R.layout.fragment_film) {
+class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
-    private val binding by viewBinding(FragmentFilmBinding::bind)
-    private val viewModel: FilmViewModel by viewModels()
+    private val binding by viewBinding(FragmentMovieBinding::bind)
+    private val viewModel: MovieViewModel by viewModels()
 
     override fun callOperations() = Unit
 

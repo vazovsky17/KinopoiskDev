@@ -68,11 +68,14 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
 
-    implementation(libs.lottie)
-    implementation(libs.glide)
-    annotationProcessor(libs.glide.compiler)
-
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
+
+    debugImplementation(libs.chucker)
+    releaseImplementation(libs.chucker.release)
+
+    implementation(libs.lottie)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
 }

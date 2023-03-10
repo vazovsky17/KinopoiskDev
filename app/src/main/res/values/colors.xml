@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
-    <!-- #5f46e2 -->
+
+    <color name="majorelle_blue">#5f46e2</color>
+    <color name="french_sky_blue">#74a6f2</color>
+    <color name="space_cadet">#233249</color>
 </resources>

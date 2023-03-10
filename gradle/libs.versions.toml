@@ -16,6 +16,7 @@ desugaring = "1.1.5"
 
 room = "2.3.0"
 retrofit = "2.9.0"
+chucker = "3.5.2"
 
 gson = "2.9.1"
 timber = "5.0.1"
@@ -42,10 +43,13 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 
+chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
+chucker-release = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
+
+
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
-
 
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }

@@ -1,8 +1,8 @@
-package app.vazovsky.kinopoiskdev.presentation.film
+package app.vazovsky.kinopoiskdev.presentation.movie
 
 import app.vazovsky.kinopoiskdev.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FilmViewModel @Inject constructor() : BaseViewModel()
+class MovieViewModel @Inject constructor() : BaseViewModel()

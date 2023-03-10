@@ -16,4 +16,6 @@
         <attr name="emptyButton" format="reference" />
     </declare-styleable>
 
+    <attr name="colorSearchView" format="color|reference" />
+
 </resources>

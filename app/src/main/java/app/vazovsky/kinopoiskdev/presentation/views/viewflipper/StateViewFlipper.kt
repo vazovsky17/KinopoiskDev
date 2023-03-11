@@ -2,15 +2,20 @@ package app.vazovsky.kinopoiskdev.presentation.views.viewflipper
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.ViewFlipper
 import androidx.annotation.LayoutRes
 import androidx.annotation.RawRes
 import androidx.annotation.StringRes
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import app.vazovsky.kinopoiskdev.R
 import app.vazovsky.kinopoiskdev.data.model.base.LoadableResult
 import app.vazovsky.kinopoiskdev.data.model.base.NetworkError

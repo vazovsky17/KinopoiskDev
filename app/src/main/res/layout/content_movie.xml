@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -60,6 +61,26 @@
             app:layout_constraintTop_toBottomOf="@id/textViewDescription"
             tools:text="Продолжительность: 1:20" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textViewSimilarMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_marginTop="16dp"
+            android:text="@string/movie_similar_movies"
+            android:textAppearance="@style/Font.Heading_2.Medium"
+            app:layout_constraintTop_toBottomOf="@id/textViewMovieLength" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSimilarMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/textViewSimilarMovies"
+            tools:listitem="@layout/item_movie_square" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

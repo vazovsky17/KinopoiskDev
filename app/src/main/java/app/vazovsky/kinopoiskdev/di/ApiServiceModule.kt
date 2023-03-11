@@ -18,7 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://api.kinopoisk.dev/"
-private const val TOKEN = "TF0JMZR-P5CMYBC-J5KKRPG-5Y1DK6E"
+private const val TOKEN = "MW0H6PC-HSE4CRS-H00KVGR-ACS388D"
 
 /** Модуль подключения к Api */
 @Module

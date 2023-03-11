@@ -25,6 +25,7 @@
                 android:id="@+id/constraintLayoutParallax"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 app:layout_collapseMode="parallax">
 
                 <ImageView
@@ -57,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:orientation="vertical"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:spanCount="4" />
@@ -79,6 +81,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="-20dp"
         android:background="@drawable/bg_round_sheet"
+        android:measureAllChildren="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include

@@ -11,15 +11,15 @@ class SemimockKinopoiskApiService(
 ) : KinopoiskApiService {
 
     override suspend fun getPossibleValuesByField(field: String): List<ApiGenre> {
-        return apiService.getPossibleValuesByField(field)
+        return mockApiService.getPossibleValuesByField(field)
     }
 
     override suspend fun getMovies(genresName: List<String>, name: List<String>, limit: Int): ApiMoviesData {
-        return apiService.getMovies(genresName, name, limit)
+        return mockApiService.getMovies(genresName, name, limit)
     }
 
     override suspend fun getMovieById(id: String): ApiMovie {
-        return apiService.getMovieById(id)
+        return mockApiService.getMovieById(id)
     }
 
 }

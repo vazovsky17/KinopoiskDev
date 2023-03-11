@@ -11,8 +11,10 @@ import app.vazovsky.kinopoiskdev.R
 import app.vazovsky.kinopoiskdev.data.model.Genre
 import app.vazovsky.kinopoiskdev.data.model.Movie
 import app.vazovsky.kinopoiskdev.data.model.MovieLengthDataType
+import app.vazovsky.kinopoiskdev.data.model.SimilarMovie
 import app.vazovsky.kinopoiskdev.databinding.FragmentMovieBinding
 import app.vazovsky.kinopoiskdev.extensions.addDefaultGridSpaceItemDecoration
+import app.vazovsky.kinopoiskdev.extensions.addLinearSpaceItemDecoration
 import app.vazovsky.kinopoiskdev.extensions.doOnApplyWindowInsets
 import app.vazovsky.kinopoiskdev.extensions.fitTopInsetsWithPadding
 import app.vazovsky.kinopoiskdev.extensions.load
@@ -20,6 +22,7 @@ import app.vazovsky.kinopoiskdev.extensions.updateMargins
 import app.vazovsky.kinopoiskdev.managers.DataTypeFormatter
 import app.vazovsky.kinopoiskdev.presentation.base.BaseFragment
 import app.vazovsky.kinopoiskdev.presentation.movie.genres.GenresAdapter
+import app.vazovsky.kinopoiskdev.presentation.movie.similar.SimilarMoviesAdapter
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -35,6 +38,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     @Inject lateinit var dataTypeFormatter: DataTypeFormatter
     @Inject lateinit var genresAdapter: GenresAdapter
+    @Inject lateinit var similarMoviesAdapter: SimilarMoviesAdapter
 
     override fun callOperations() {
         viewModel.getMovie(id)
@@ -42,21 +46,20 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     override fun onSetupLayout(savedInstanceState: Bundle?) = with(binding) {
         root.fitTopInsetsWithPadding()
+        toolbar.setNavigationOnClickListener { viewModel.navigateBack() }
         setupInsets()
 
         stateViewFlipper.setRetryMethod { viewModel.getMovie(id) }
 
-        toolbar.setNavigationOnClickListener {
-            viewModel.navigateBack()
-        }
         setupGenres()
+        setupSimilarMovies()
     }
 
     override fun onBindViewModel() = with(viewModel) {
         observeNavigationCommands()
         movieLiveData.observe { result ->
             binding.stateViewFlipper.setStateFromResult(result)
-            binding.buttonShow.isVisible = result.isSuccess
+            setupVisibility(result.isSuccess)
             result.doOnSuccess { movie ->
                 bindMovie(movie)
             }
@@ -88,6 +91,23 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
         )
     }
 
+    private fun setupSimilarMovies() = with(binding.content) {
+        recyclerViewSimilarMovies.adapter = similarMoviesAdapter.apply {
+            onItemClick = {}
+        }
+        recyclerViewSimilarMovies.addLinearSpaceItemDecoration(
+            spacing = R.dimen.padding_16,
+            showFirstVerticalDivider = true,
+            showLastVerticalDivider = true,
+        )
+    }
+
+    /** Настройка отображения кнопки просмотра и постера */
+    private fun setupVisibility(isVisible: Boolean) = with(binding) {
+        constraintLayoutParallax.isVisible = isVisible
+        buttonShow.isVisible = isVisible
+    }
+
     /** Привязка информации о фильме */
     private fun bindMovie(movie: Movie) = with(binding) {
         toolbar.title = buildString {
@@ -97,13 +117,17 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
             }
             append(movie.year)
         }
-        imageViewBackground.load(imageUrl = movie.poster.url)
+        imageViewBackground.load(
+            imageUrl = movie.poster.url,
+            placeHolderRes = R.drawable.img_preview,
+            errorRes = R.drawable.img_preview,
+        )
 
         bindGenres(movie.genres)
         bindDescription(movie.description)
         bindMovieLength(movie.movieLength)
         /** TODO сделать рейтинг */
-        /** TODO */
+        similarMoviesAdapter.submitList(movie.similarMovies)
 
         buttonShow.setOnClickListener {
             /** TODO переход к просмотру фильма */

@@ -51,6 +51,72 @@ class MockKinopoiskApiService : KinopoiskApiService {
                         "029f472e-bf4d-4e00-b7c0-f45c08cf8b82/x1000",
             ),
         ),
+        ApiSimilarMovie(
+            id = 49684,
+            name = "Ходячий замок",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/" +
+                        "1946459/399bb0c1-2ac5-46ca-9efd-50d8708e2809/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/" +
+                        "399bb0c1-2ac5-46ca-9efd-50d8708e2809/x1000",
+            ),
+        ),
+        ApiSimilarMovie(
+            id = 8221,
+            name = "Мой сосед Тоторо",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946" +
+                        "/029f472e-bf4d-4e00-b7c0-f45c08cf8b82/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/" +
+                        "029f472e-bf4d-4e00-b7c0-f45c08cf8b82/x1000",
+            ),
+        ),
+        ApiSimilarMovie(
+            id = 49684,
+            name = "Ходячий замок",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/" +
+                        "1946459/399bb0c1-2ac5-46ca-9efd-50d8708e2809/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/" +
+                        "399bb0c1-2ac5-46ca-9efd-50d8708e2809/x1000",
+            ),
+        ),
+        ApiSimilarMovie(
+            id = 8221,
+            name = "Мой сосед Тоторо",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946" +
+                        "/029f472e-bf4d-4e00-b7c0-f45c08cf8b82/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/" +
+                        "029f472e-bf4d-4e00-b7c0-f45c08cf8b82/x1000",
+            ),
+        ),
+        ApiSimilarMovie(
+            id = 49684,
+            name = "Ходячий замок",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/" +
+                        "1946459/399bb0c1-2ac5-46ca-9efd-50d8708e2809/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/" +
+                        "399bb0c1-2ac5-46ca-9efd-50d8708e2809/x1000",
+            ),
+        ),
+        ApiSimilarMovie(
+            id = 8221,
+            name = "Мой сосед Тоторо",
+            type = "anime",
+            poster = ApiPoster(
+                url = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946" +
+                        "/029f472e-bf4d-4e00-b7c0-f45c08cf8b82/orig",
+                previewUrl = "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/" +
+                        "029f472e-bf4d-4e00-b7c0-f45c08cf8b82/x1000",
+            ),
+        ),
     )
     private var movies = listOf(
         ApiMovie(

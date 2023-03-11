@@ -1,7 +1,7 @@
 package app.vazovsky.kinopoiskdev.data.repository
 
 import app.vazovsky.kinopoiskdev.data.mapper.GenreMapper
-import app.vazovsky.kinopoiskdev.data.model.GenreFilter
+import app.vazovsky.kinopoiskdev.data.model.Genre
 import app.vazovsky.kinopoiskdev.data.remote.KinopoiskApiService
 import javax.inject.Inject
 
@@ -12,7 +12,7 @@ class GenresRepositoryImpl @Inject constructor(
     private val genreMapper: GenreMapper,
 ) : GenresRepository {
 
-    override suspend fun getGenres(): List<GenreFilter> {
+    override suspend fun getGenres(): List<Genre> {
         return apiService.getPossibleValuesByField(GENRES_NAME).map { genreMapper.fromApiToModel(it) }
     }
 

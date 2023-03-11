@@ -1,12 +1,14 @@
 package app.vazovsky.kinopoiskdev.presentation.dashboard
 
 import android.os.Bundle
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import app.vazovsky.kinopoiskdev.R
 import app.vazovsky.kinopoiskdev.databinding.FragmentDashboardBinding
 import app.vazovsky.kinopoiskdev.extensions.addDefaultGridSpaceItemDecoration
 import app.vazovsky.kinopoiskdev.extensions.addLinearSpaceItemDecoration
 import app.vazovsky.kinopoiskdev.extensions.fitTopInsetsWithPadding
+import app.vazovsky.kinopoiskdev.extensions.hideSoftKeyboard
 import app.vazovsky.kinopoiskdev.presentation.base.BaseFragment
 import app.vazovsky.kinopoiskdev.presentation.dashboard.movies.MoviesAdapter
 import app.vazovsky.kinopoiskdev.presentation.dashboard.tabs.TabsAdapter
@@ -25,8 +27,6 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
     override fun callOperations() {
         viewModel.getGenres()
-        // viewModel.getMovies(listOf("аниме"))
-        viewModel.getMovies()
     }
 
     override fun onSetupLayout(savedInstanceState: Bundle?) = with(binding) {
@@ -34,31 +34,51 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
         setupTabs()
         setupMovies()
+        setupSearch()
         stateViewFlipper.setRetryMethod { viewModel.getMovies() }
     }
 
     override fun onBindViewModel() = with(viewModel) {
         observeNavigationCommands()
-        genresLiveData.observe { result ->
-            result.doOnSuccess { genres ->
-                tabsAdapter.submitList(genres)
-            }
+        genresLiveData.observe { }
+        genresFiltersLiveData.observe { filters ->
+            tabsAdapter.submitList(filters)
         }
         moviesLiveData.observe { result ->
             binding.stateViewFlipper.setStateFromResult(result)
             result.doOnSuccess { movies ->
                 moviesAdapter.submitList(movies)
+                bindTitle(movies.isEmpty())
             }
         }
     }
 
+    /** Настройка поиска */
+    private fun setupSearch() = with(binding) {
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.getMovies(name = query)
+                searchView.hideSoftKeyboard()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean = true
+        })
+        searchView.setOnCloseListener {
+            viewModel.getMovies()
+            searchView.hideSoftKeyboard()
+            true
+        }
+    }
+
+    /** Настройка фильтров */
     private fun setupTabs() = with(binding) {
         recyclerViewMovies.emptyView = emptyViewMovies
         recyclerViewTabs.adapter = tabsAdapter.apply {
             onItemClick = { tab, position ->
                 val newTab = tab.copy(isSelected = !tab.isSelected)
                 updateItem(newTab, position)
-                /** TODO изменение во ViewModel */
+                viewModel.updateGenres(newTab)
             }
         }
         recyclerViewTabs.addLinearSpaceItemDecoration(
@@ -68,6 +88,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
         )
     }
 
+    /** Настройка списка фильмов */
     private fun setupMovies() = with(binding) {
         recyclerViewMovies.adapter = moviesAdapter.apply {
             onItemClick = { movie ->
@@ -78,6 +99,13 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
             spanCount = 2,
             spacing = R.dimen.padding_12,
             includeEdge = true,
+        )
+    }
+
+    private fun bindTitle(isMoviesEmpty: Boolean) = with(binding.textViewTitle) {
+        text = getString(
+            if (isMoviesEmpty) R.string.dashboard_title_empty
+            else R.string.dashboard_title
         )
     }
 

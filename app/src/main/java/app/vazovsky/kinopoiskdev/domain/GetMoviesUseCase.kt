@@ -10,12 +10,22 @@ class GetMoviesUseCase @Inject constructor(
 ) : UseCaseUnary<GetMoviesUseCase.Params, List<Movie>>() {
 
     override suspend fun execute(params: Params): List<Movie> {
-        return movieRepository.getMovies(params.genres)
+        return movieRepository.getMovies(
+            genresName = params.genres,
+            name = params.name?.let { listOf(it) } ?: emptyList(),
+            limit = params.limit ?: 100,
+        )
     }
 
     data class Params(
         /** Список жанров */
         val genres: List<String>,
+
+        /** Название */
+        val name: String?,
+
+        /** Лимит показа */
+        val limit: Int?,
     )
 
 }

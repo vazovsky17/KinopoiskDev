@@ -1,5 +1,6 @@
 [versions]
 agp = "7.3.1"
+livedata-ktx = "2.5.1"
 material = "1.6.1"
 core = "1.6.0"
 
@@ -25,6 +26,7 @@ lottie = "3.4.0"
 
 [libraries]
 material = { module = "com.google.android.material:material", version.ref = "material" }
+livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "livedata-ktx" }
 core = { module = "androidx.core:core", version.ref = "core" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation" }
@@ -45,7 +47,6 @@ retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref 
 
 chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
 chucker-release = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
-
 
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }

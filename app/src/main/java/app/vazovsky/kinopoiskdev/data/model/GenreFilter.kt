@@ -5,9 +5,6 @@ data class GenreFilter(
     /** Название */
     val name: String,
 
-    /** Вспомогательное название */
-    val slug: String,
-
     /** Выбран ли */
     val isSelected: Boolean = false,
 )

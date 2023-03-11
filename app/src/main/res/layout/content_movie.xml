@@ -34,10 +34,10 @@
             android:padding="@dimen/padding_4"
             android:textAppearance="@style/Font.Body_2.Regular"
             android:textColor="?colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/textViewDescriptionLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@id/textViewDescriptionLabel"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/movie_description_expand" />
 
         <TextView

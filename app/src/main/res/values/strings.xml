@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">KinopoiskDev</string>
+
+    <string name="dashboard_title">Вот что мы нашли 😏</string>
+    <string name="dashboard_title_empty">Нам тоже очень грустно 😥</string>
+
     <string name="movie_show">Перейти к просмотру</string>
     <string name="movie_description_label">Описание</string>
     <string name="movie_description_expand">Подробнее</string>

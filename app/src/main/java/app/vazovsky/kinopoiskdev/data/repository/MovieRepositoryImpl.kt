@@ -9,8 +9,8 @@ class MovieRepositoryImpl @Inject constructor(
     private val apiService: KinopoiskApiService,
     private val movieMapper: MovieMapper,
 ) : MovieRepository {
-    override suspend fun getMovies(genresName: List<String>): List<Movie> {
-        return apiService.getMovies(genresName).docs.map { movieMapper.fromApiToModel(it) }
+    override suspend fun getMovies(genresName: List<String>, name: List<String>, limit: Int): List<Movie> {
+        return apiService.getMovies(genresName, name, limit).docs.map { movieMapper.fromApiToModel(it) }
     }
 
     override suspend fun getMovieById(id: String): Movie {

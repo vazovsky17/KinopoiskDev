@@ -187,7 +187,11 @@ class MockKinopoiskApiService : KinopoiskApiService {
         )
     }
 
-    override suspend fun getMovies(genresName: List<String>): ApiMoviesData {
+    override suspend fun getMovies(
+        genresName: List<String>,
+        name: List<String>,
+        limit: Int,
+    ): ApiMoviesData {
         return ApiMoviesData(
             docs = movies,
         )

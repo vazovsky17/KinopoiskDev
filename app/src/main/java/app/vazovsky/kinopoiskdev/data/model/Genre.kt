@@ -4,4 +4,7 @@ package app.vazovsky.kinopoiskdev.data.model
 data class Genre(
     /** Название */
     val name: String,
+
+    /** Вспомогательное значение */
+    val slug: String? = null,
 )

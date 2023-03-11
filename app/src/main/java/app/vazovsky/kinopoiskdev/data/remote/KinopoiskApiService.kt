@@ -17,6 +17,8 @@ interface KinopoiskApiService {
     @GET("v1/movie")
     suspend fun getMovies(
         @Query("genres.name") genresName: List<String> = emptyList(),
+        @Query("name") name: List<String>,
+        @Query("limit") limit: Int,
     ): ApiMoviesData
 
     @GET("v1/movie/{id}")

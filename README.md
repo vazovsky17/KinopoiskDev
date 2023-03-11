@@ -3,13 +3,15 @@
 Каталог расположен в файле <i>gradle/libs.version.toml</i>
 
 <h2>Стек</h2>
-- Kotlin
-- Dagger Hilt
-- Retrofit
-- Room (в процессе)
-- Navigation Component
-- Glide, Lottie
-- Timber, Chucker
+<ul>
+  <li>Kotlin</li>
+  <li>Dagger Hilt</li>
+  <li>Retrofit</li>
+  <li>Room (в процессе)</li>
+  <li>Navigation Component</li>
+  <li>Glide, Lottie</li>
+  <li>Timber, Chucker</li>
+</ul>
 
 <h2>Архитектура</h2>
 MVVM

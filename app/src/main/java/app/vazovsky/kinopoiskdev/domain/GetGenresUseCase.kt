@@ -7,6 +7,7 @@ import app.vazovsky.kinopoiskdev.domain.base.UseCase
 import app.vazovsky.kinopoiskdev.domain.base.UseCaseUnary
 import javax.inject.Inject
 
+/** Получение списка жанров */
 class GetGenresUseCase @Inject constructor(
     private val genresRepository: GenresRepository,
 ) : UseCaseUnary<UseCase.None, List<Genre>>() {

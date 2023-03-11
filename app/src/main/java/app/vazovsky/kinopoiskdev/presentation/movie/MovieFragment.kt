@@ -26,6 +26,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/** Экран детальной информации по фильму */
 @AndroidEntryPoint
 class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
@@ -104,10 +105,9 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
         )
     }
 
-    /** Настройка отображения кнопки просмотра и постера */
+    /** Настройка отображения постера */
     private fun setupVisibility(isVisible: Boolean) = with(binding) {
         constraintLayoutParallax.isVisible = isVisible
-        buttonShow.isVisible = isVisible
     }
 
     /** Привязка информации о фильме */
@@ -122,12 +122,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
         bindGenres(movie.genres)
         bindDescription(movie.description)
         bindMovieLength(movie.movieLength)
-        /** TODO сделать рейтинг */
         similarMoviesAdapter.submitList(movie.similarMovies)
-
-        buttonShow.setOnClickListener {
-            /** TODO переход к просмотру фильма */
-        }
     }
 
     private fun bindToolbarTitle(movie: Movie?) = with(binding) {

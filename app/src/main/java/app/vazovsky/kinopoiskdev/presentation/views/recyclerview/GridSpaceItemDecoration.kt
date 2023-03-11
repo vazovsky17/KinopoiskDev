@@ -5,7 +5,13 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-/** Декоратор для GridLayoutManager */
+/**
+ * Декоратор для GridLayoutManager
+ * @param spanCount количество столбцов/строк
+ * @param spacing отступ
+ * @param includeEdge рисовать, включая края
+ * @param excludeTopEdge исключить верхний край
+ */
 class GridSpaceItemDecoration(
     private val spanCount: Int,
     private val spacing: Int,

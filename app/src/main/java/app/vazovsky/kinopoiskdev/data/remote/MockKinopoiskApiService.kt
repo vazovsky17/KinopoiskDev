@@ -8,6 +8,7 @@ import app.vazovsky.kinopoiskdev.data.remote.model.ApiSimilarMovie
 import app.vazovsky.kinopoiskdev.data.remote.model.ApiVideos
 import app.vazovsky.kinopoiskdev.data.remote.response.ApiMoviesData
 
+/** Моки, которые можно использовать без апи */
 class MockKinopoiskApiService : KinopoiskApiService {
 
     private val genres = listOf(

@@ -6,7 +6,14 @@ import androidx.annotation.Px
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-/** Декоратор для LinearLayoutManager */
+/**
+ * Декоратор для LinearLayoutManager
+ * @param space отступ
+ * @param showFirstVerticalDivider показывать ли первый вертикальный разделитель
+ * @param showLastVerticalDivider показывать ли последний вертикальный разделитель
+ * @param showFirstHorizontalDivider показывать ли первый горизонтальный разделитель
+ * @param showLastHorizontalDivider показывать ли последний горизонтальный разделитель
+ */
 class LinearSpaceItemDecoration(
     @Px private val space: Int,
     private val showFirstVerticalDivider: Boolean = false,

@@ -9,6 +9,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
+/** Базовый класс для ViewModel */
 abstract class BaseViewModel : ViewModel() {
 
     private val _navigationLiveEvent = SingleLiveEvent<NavigationCommand>()

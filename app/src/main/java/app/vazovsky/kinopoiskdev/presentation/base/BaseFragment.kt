@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.lifecycleScope
 import app.vazovsky.kinopoiskdev.extensions.observeNavigationCommands
 
+/** Базовый класс для фрагментов */
 abstract class BaseFragment(@LayoutRes layout: Int) : Fragment(layout) {
 
     override fun onCreate(savedInstanceState: Bundle?) {

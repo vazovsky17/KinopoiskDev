@@ -17,6 +17,7 @@ import app.vazovsky.kinopoiskdev.data.remote.model.ApiVideos
 import app.vazovsky.kinopoiskdev.extensions.orDefault
 import javax.inject.Inject
 
+/** Маппер для преобразования API моделей фильмов в обычные */
 class MovieMapper @Inject constructor() {
 
     fun fromApiToModel(apiModel: ApiMovie?): Movie {

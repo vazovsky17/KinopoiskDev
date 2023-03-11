@@ -7,6 +7,7 @@ import app.vazovsky.kinopoiskdev.extensions.formatDecimal
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
+/** Форматтер для локальных типов данных */
 class DataTypeFormatter @Inject constructor(
     @ApplicationContext val context: Context,
 ) {

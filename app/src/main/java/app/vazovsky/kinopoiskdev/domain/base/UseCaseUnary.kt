@@ -5,6 +5,7 @@ import app.vazovsky.kinopoiskdev.data.model.base.Progressable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+/** Базовый класс юз-кейсов для образения к репозиториям */
 abstract class UseCaseUnary<in Params, Result> : UseCase where Result : Any {
 
     abstract suspend fun execute(params: Params): Result

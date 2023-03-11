@@ -5,6 +5,7 @@ import app.vazovsky.kinopoiskdev.data.repository.MovieRepository
 import app.vazovsky.kinopoiskdev.domain.base.UseCaseUnary
 import javax.inject.Inject
 
+/** Получение списка фильмов */
 class GetMoviesUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
 ) : UseCaseUnary<GetMoviesUseCase.Params, List<Movie>>() {

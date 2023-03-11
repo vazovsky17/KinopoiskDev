@@ -11,6 +11,7 @@ import javax.inject.Inject
 
 private const val FADE_DURATION = 1000L
 
+/** Адаптер для отображения фильмов */
 class MoviesAdapter @Inject constructor(
     @ApplicationContext val context: Context,
 ) : BaseAdapter<Movie, MovieViewHolder>() {

@@ -5,6 +5,7 @@ import app.vazovsky.kinopoiskdev.data.model.GenreFilter
 import app.vazovsky.kinopoiskdev.presentation.views.recyclerview.BaseAdapter
 import javax.inject.Inject
 
+/** Адаптер для отображения табов */
 class TabsAdapter @Inject constructor() : BaseAdapter<GenreFilter, TabViewHolder>() {
 
     lateinit var onItemClick: (GenreFilter, Int) -> Unit

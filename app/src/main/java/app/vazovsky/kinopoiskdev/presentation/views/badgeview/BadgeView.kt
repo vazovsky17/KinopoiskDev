@@ -15,6 +15,7 @@ import app.vazovsky.kinopoiskdev.extensions.getColorFromAttribute
 import app.vazovsky.kinopoiskdev.extensions.setTextAppearanceCompat
 import com.google.android.material.R as MaterialR
 
+/** Бэйдж с косыми скругленными углами */
 class BadgeView : LinearLayout {
 
     private val binding = ViewBadgeBinding.inflate(LayoutInflater.from(context), this)

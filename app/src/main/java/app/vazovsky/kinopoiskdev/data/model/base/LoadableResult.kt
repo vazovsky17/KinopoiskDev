@@ -66,6 +66,7 @@ sealed class LoadableResult<R>(open val payload: R? = null) {
         is Success -> success(f(value))
     }
 
+    /** Действия при выполненном запросе */
     inline fun doOnComplete(operation: (LoadableResult<R>) -> Unit) {
         when (this) {
             is Failure -> operation(failure(throwable, payload))
@@ -74,14 +75,17 @@ sealed class LoadableResult<R>(open val payload: R? = null) {
         }
     }
 
+    /** Действия при загрузке */
     inline fun doOnLoading(operation: () -> Unit) {
         if (this is Loading) operation()
     }
 
+    /** Действия при успешном запросе */
     inline fun doOnSuccess(operation: (R) -> Unit) {
         if (this is Success) operation(value)
     }
 
+    /** Действия при фейле */
     inline fun doOnFailure(operation: (ParsedError) -> Unit) {
         if (this is Failure) operation(error)
     }

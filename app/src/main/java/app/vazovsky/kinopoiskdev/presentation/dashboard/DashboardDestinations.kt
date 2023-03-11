@@ -5,8 +5,8 @@ import javax.inject.Inject
 
 class DashboardDestinations @Inject constructor() {
 
-    fun movie() = NavigationCommand.To(
-        DashboardFragmentDirections.actionDashboardFragmentToMovieFragment()
+    fun movie(id: String) = NavigationCommand.To(
+        DashboardFragmentDirections.actionDashboardFragmentToMovieFragment(id)
     )
 
 }

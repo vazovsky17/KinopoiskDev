@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KinopoiskDev</string>
+    <string name="movie_show">Перейти к просмотру</string>
+    <string name="movie_description_label">Описание</string>
+    <string name="movie_description_expand">Подробнее</string>
+    <string name="movie_description_collapse">Скрыть</string>
+    <string name="movie_movie_length_prefix">Продолжительность:</string>
+    <string name="movie_movie_length_hours">ч</string>
+    <string name="movie_movie_length_minutes">мин</string>
 </resources>

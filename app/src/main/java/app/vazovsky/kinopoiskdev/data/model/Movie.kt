@@ -5,9 +5,6 @@ data class Movie(
     /** Id фильма с кинопоиска */
     val id: Long,
 
-    /** Тип тайтла */
-    val type: String,
-
     /** Название */
     val name: String,
 
@@ -21,11 +18,17 @@ data class Movie(
     val rating: Rating,
 
     /** Продолжительность фильма */
-    val movieLength: Int,
+    val movieLength: MovieLengthDataType,
 
     /** Постер */
     val poster: Poster,
 
-    /** Логотип */
-    val logo: Logo,
+    /** Похожие фильмы */
+    val similarMovies: List<SimilarMovie>,
+
+    /** Трейлеры, тизеры */
+    val videos: Videos,
+
+    /** Жанры */
+    val genres: List<Genre>,
 )

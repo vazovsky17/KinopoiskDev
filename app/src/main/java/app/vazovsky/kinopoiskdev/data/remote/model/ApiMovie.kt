@@ -1,14 +1,12 @@
 package app.vazovsky.kinopoiskdev.data.remote.model
 
+import app.vazovsky.kinopoiskdev.data.model.MovieLengthDataType
 import com.google.gson.annotations.SerializedName
 
 /** Фильм */
 data class ApiMovie(
     /** Id фильма с кинопоиска */
     @SerializedName("id") val id: Long?,
-
-    /** Тип тайтла */
-    @SerializedName("type") val type: String?,
 
     /** Название */
     @SerializedName("name") val name: String?,
@@ -23,11 +21,17 @@ data class ApiMovie(
     @SerializedName("rating") val rating: ApiRating?,
 
     /** Продолжительность фильма */
-    @SerializedName("movieLength") val movieLength: Int?,
+    @SerializedName("movieLength") val movieLength: MovieLengthDataType?,
 
     /** Постер */
     @SerializedName("poster") val poster: ApiPoster?,
 
-    /** Логотип */
-    @SerializedName("logo") val logo: ApiLogo?,
+    /** Похожие фильмы */
+    @SerializedName("similarMovies") val similarMovies: List<ApiSimilarMovie>,
+
+    /** Трейлеры, тизеры */
+    @SerializedName("videos") val videos: ApiVideos,
+
+    /** Жанры */
+    @SerializedName("genres") val genres: List<ApiGenre>,
 )

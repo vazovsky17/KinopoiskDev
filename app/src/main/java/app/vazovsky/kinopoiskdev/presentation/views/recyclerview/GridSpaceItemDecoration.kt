@@ -83,10 +83,9 @@ class GridSpaceItemDecoration(
     }
 
     private fun getOrientation(parent: RecyclerView): Int {
-        return if (parent.layoutManager is GridLayoutManager) {
-            (parent.layoutManager as GridLayoutManager).orientation
-        } else {
-            throw IllegalStateException("GridSpacingItemDecoration can only be used with a GridLayoutManager.")
+        return when (parent.layoutManager) {
+            is GridLayoutManager -> (parent.layoutManager as GridLayoutManager).orientation
+            else -> throw IllegalStateException("GridSpacingItemDecoration can only be used with a GridLayoutManager.")
         }
     }
 

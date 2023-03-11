@@ -12,4 +12,11 @@
     <color name="majorelle_blue">#5f46e2</color>
     <color name="french_sky_blue">#74a6f2</color>
     <color name="space_cadet">#233249</color>
+    <color name="anti_flash_white">#EEEFF4</color>
+
+    <color name="indian_orange">#FF7722</color>
+    <color name="indian_green">#138808</color>
+    <color name="american_red">#B31942</color>
+    <color name="pride">#672A70</color>
+    <color name="cadbury_purple">#330072</color>
 </resources>

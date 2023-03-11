@@ -13,13 +13,23 @@
 
         <action
             android:id="@+id/action_dashboardFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            app:destination="@id/movieFragment">
+
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/movieFragment"
         android:name="app.vazovsky.kinopoiskdev.presentation.movie.MovieFragment"
         android:label="FilmFragment"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_movie">
+
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

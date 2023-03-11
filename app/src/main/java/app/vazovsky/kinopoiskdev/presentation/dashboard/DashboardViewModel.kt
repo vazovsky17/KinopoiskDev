@@ -35,14 +35,15 @@ class DashboardViewModel @Inject constructor(
     }
 
     /** Получение списка фильмов */
-    fun getMovies() {
+    fun getMovies(genres: List<String> = emptyList()) {
         _moviesLiveData.launchLoadData(
-            getMoviesUseCase.executeFlow(UseCase.None)
+            getMoviesUseCase.executeFlow(GetMoviesUseCase.Params(genres))
         )
     }
 
-    fun openMovie() {
-        navigate(destinations.movie())
+    /** Переход на детальную информацию о фильме */
+    fun openMovie(id: String) {
+        navigate(destinations.movie(id))
     }
 
 }

@@ -8,5 +8,5 @@ data class ApiGenre(
     @SerializedName("name") val name: String?,
 
     /** Вспомогательное значение */
-    @SerializedName("slug") val slug: String?,
+    @SerializedName("slug") val slug: String? = null,
 )

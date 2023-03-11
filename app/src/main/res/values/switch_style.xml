@@ -2,7 +2,7 @@
 <resources>
 
     <style name="SwitchStyle" parent="@style/Widget.MaterialComponents.CompoundButton.Switch">
-        <item name="trackTint">?android:backdropColor</item>
+        <item name="trackTint">?android:colorBackground</item>
         <item name="thumbTint">?colorOnPrimary</item>
         <item name="android:textColor">?colorOnPrimary</item>
         <item name="android:textAppearance">@style/Font.Body_1.Medium</item>

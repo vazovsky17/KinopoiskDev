@@ -25,6 +25,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
 
     override fun callOperations() {
         viewModel.getGenres()
+        // viewModel.getMovies(listOf("аниме"))
         viewModel.getMovies()
     }
 
@@ -70,7 +71,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashboard) {
     private fun setupMovies() = with(binding) {
         recyclerViewMovies.adapter = moviesAdapter.apply {
             onItemClick = { movie ->
-                viewModel.openMovie()
+                viewModel.openMovie(movie.id.toString())
             }
         }
         recyclerViewMovies.addDefaultGridSpaceItemDecoration(

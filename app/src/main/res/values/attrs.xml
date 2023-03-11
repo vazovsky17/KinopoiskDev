@@ -16,6 +16,14 @@
         <attr name="emptyButton" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="BadgeView">
+        <attr name="badgeText" format="reference" />
+        <attr name="badgeColor" format="reference|color" />
+        <attr name="badgeTextColor" format="reference|color" />
+        <attr name="badgeIsBig" format="boolean" />
+    </declare-styleable>
+
+
     <attr name="colorSearchView" format="color|reference" />
 
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewDescriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_marginTop="20dp"
+            android:text="@string/movie_description_label"
+            android:textAppearance="@style/Font.Heading_2.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDescriptionExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/margin_20"
+            android:background="@drawable/bg_ripple_rounded"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding_4"
+            android:textAppearance="@style/Font.Body_2.Regular"
+            android:textColor="?colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/textViewDescriptionLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/movie_description_expand" />
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:textAppearance="@style/Font.Body_2.Regular"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescriptionLabel" />
+
+        <TextView
+            android:id="@+id/textViewMovieLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/Font.Body_1.Bold"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription"
+            tools:text="Продолжительность: 1:20" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

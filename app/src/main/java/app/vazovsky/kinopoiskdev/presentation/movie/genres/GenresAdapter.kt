@@ -7,10 +7,8 @@ import javax.inject.Inject
 
 class GenresAdapter @Inject constructor() : BaseAdapter<Genre, GenreViewHolder>() {
 
-    lateinit var onItemClick: (Genre) -> Unit
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreViewHolder {
-        return GenreViewHolder(parent, onItemClick)
+        return GenreViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {

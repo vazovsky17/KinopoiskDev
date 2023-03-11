@@ -23,6 +23,8 @@ gson = "2.9.1"
 timber = "5.0.1"
 glide = "4.14.2"
 lottie = "3.4.0"
+# на будущее
+exoplayer = "2.18.4"
 
 [libraries]
 material = { module = "com.google.android.material:material", version.ref = "material" }
@@ -52,6 +54,7 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 
+exoplayer = { module = "com.google.android.exoplayer:exoplayer", version.ref = "exoplayer" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }

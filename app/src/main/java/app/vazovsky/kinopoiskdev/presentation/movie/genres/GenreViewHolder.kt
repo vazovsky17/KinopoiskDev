@@ -10,7 +10,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 
 class GenreViewHolder(
     parent: ViewGroup,
-    private val onItemClick: (Genre) -> Unit,
 ) : RecyclerView.ViewHolder(parent.inflate(R.layout.item_badge)) {
     private val binding by viewBinding(ItemBadgeBinding::bind)
 
@@ -25,8 +24,5 @@ class GenreViewHolder(
     fun bind(item: Genre) = with(binding) {
         badgeViewGenre.setBadgeText(item.name)
         badgeViewGenre.setBadgeColor(root.context.getColor(listOfColors[bindingAdapterPosition % 5]))
-        root.setOnClickListener {
-            onItemClick(item)
-        }
     }
 }

@@ -76,6 +76,7 @@ dependencies {
     debugImplementation(libs.chucker)
     releaseImplementation(libs.chucker.release)
 
+    implementation(libs.exoplayer)
     implementation(libs.lottie)
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)

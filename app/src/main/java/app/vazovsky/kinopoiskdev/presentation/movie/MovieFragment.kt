@@ -11,7 +11,6 @@ import app.vazovsky.kinopoiskdev.R
 import app.vazovsky.kinopoiskdev.data.model.Genre
 import app.vazovsky.kinopoiskdev.data.model.Movie
 import app.vazovsky.kinopoiskdev.data.model.MovieLengthDataType
-import app.vazovsky.kinopoiskdev.data.model.SimilarMovie
 import app.vazovsky.kinopoiskdev.databinding.FragmentMovieBinding
 import app.vazovsky.kinopoiskdev.extensions.addDefaultGridSpaceItemDecoration
 import app.vazovsky.kinopoiskdev.extensions.addLinearSpaceItemDecoration
@@ -35,6 +34,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     private val args by navArgs<MovieFragmentArgs>()
     private val id by lazy { args.id }
+    private var similarId: String? = null
 
     @Inject lateinit var dataTypeFormatter: DataTypeFormatter
     @Inject lateinit var genresAdapter: GenresAdapter
@@ -49,7 +49,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
         toolbar.setNavigationOnClickListener { viewModel.navigateBack() }
         setupInsets()
 
-        stateViewFlipper.setRetryMethod { viewModel.getMovie(id) }
+        stateViewFlipper.setRetryMethod { viewModel.getMovie(similarId ?: id) }
 
         setupGenres()
         setupSimilarMovies()
@@ -58,6 +58,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
     override fun onBindViewModel() = with(viewModel) {
         observeNavigationCommands()
         movieLiveData.observe { result ->
+            if (!result.isSuccess) bindToolbarTitle(null)
             binding.stateViewFlipper.setStateFromResult(result)
             setupVisibility(result.isSuccess)
             result.doOnSuccess { movie ->
@@ -81,9 +82,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     /** Настройка списка жанров */
     private fun setupGenres() = with(binding) {
-        recyclerViewGenres.adapter = genresAdapter.apply {
-            onItemClick = {}
-        }
+        recyclerViewGenres.adapter = genresAdapter
         recyclerViewGenres.addDefaultGridSpaceItemDecoration(
             spanCount = 4,
             spacing = R.dimen.padding_4,
@@ -93,10 +92,13 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     private fun setupSimilarMovies() = with(binding.content) {
         recyclerViewSimilarMovies.adapter = similarMoviesAdapter.apply {
-            onItemClick = {}
+            onItemClick = { movie ->
+                similarId = movie.id.toString()
+                viewModel.getMovie(movie.id.toString())
+            }
         }
         recyclerViewSimilarMovies.addLinearSpaceItemDecoration(
-            spacing = R.dimen.padding_16,
+            spacing = R.dimen.padding_12,
             showFirstVerticalDivider = true,
             showLastVerticalDivider = true,
         )
@@ -110,13 +112,7 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
 
     /** Привязка информации о фильме */
     private fun bindMovie(movie: Movie) = with(binding) {
-        toolbar.title = buildString {
-            append(movie.name)
-            if (movie.name.isNotBlank() && movie.year != 0) {
-                append(", ")
-            }
-            append(movie.year)
-        }
+        bindToolbarTitle(movie)
         imageViewBackground.load(
             imageUrl = movie.poster.url,
             placeHolderRes = R.drawable.img_preview,
@@ -132,6 +128,18 @@ class MovieFragment : BaseFragment(R.layout.fragment_movie) {
         buttonShow.setOnClickListener {
             /** TODO переход к просмотру фильма */
         }
+    }
+
+    private fun bindToolbarTitle(movie: Movie?) = with(binding) {
+        toolbar.title = movie?.let {
+            buildString {
+                append(movie.name)
+                if (movie.name.isNotBlank() && movie.year != 0) {
+                    append(", ")
+                }
+                append(movie.year)
+            }
+        } ?: ""
     }
 
     private fun bindMovieLength(movieLength: MovieLengthDataType) = with(binding.content) {
